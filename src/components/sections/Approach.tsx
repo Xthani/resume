@@ -52,7 +52,7 @@ const Approach = () => {
           viewport={{ once: true, amount: 0.2 }}
           className="flex flex-col md:flex-row md:justify-between gap-6 md:gap-4"
         >
-          {steps.map((step, idx) => {
+          {steps.map((step) => {
             const Icon = step.icon
             return (
               <motion.div

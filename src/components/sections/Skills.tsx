@@ -29,7 +29,7 @@ const Skills = () => {
           viewport={{ once: true, amount: 0.2 }}
           className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8"
         >
-          {skills.map((skill, idx) => {
+          {skills.map((skill) => {
             const Icon = skill.icon
             return (
               <motion.div
