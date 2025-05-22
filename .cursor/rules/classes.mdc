@@ -1,0 +1,23 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+// Фон
+bg-background = bg-[#111827]
+
+// Основной текст
+text-foreground = text-[#f1f5f9]
+
+// Вторичный текст
+text-muted = text-[#cbd5e1]
+
+// Акцент (например, кнопки, ссылки)
+text-accent = text-[#10b981]
+bg-accent = bg-[#10b981]
+hover:bg-accent-dark = hover:bg-[#059669]
+
+// CTA на тёмном фоне
+text-cta = text-white
+bg-cta = bg-[#ec4899]
+hover:bg-cta-hover = hover:bg-[#db2777]
