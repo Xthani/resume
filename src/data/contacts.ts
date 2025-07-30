@@ -1,6 +1,6 @@
 export const contacts = {
-  email: 'you@example.com',
-  telegram: 'your_username',
-  github: 'https://github.com/yourname',
-  linkedin: 'https://linkedin.com/in/yourname',
+  email: 'muncoval@gmail.com',
+  telegram: 'nullvector_io',
+  github: 'https://github.com/Xthani',
+  linkedin: 'https://www.linkedin.com/in/xthani/',
 } 

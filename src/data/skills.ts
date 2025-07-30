@@ -1,4 +1,19 @@
-import {FramerLogoIcon, GitHubLogoIcon, CodeIcon, LightningBoltIcon, FigmaLogoIcon} from '@radix-ui/react-icons'
+import {
+  FramerLogoIcon, 
+  GitHubLogoIcon, 
+  CodeIcon, 
+  LightningBoltIcon, 
+  FigmaLogoIcon,
+  GearIcon,
+  LayersIcon,
+  StackIcon,
+  MixIcon,
+  FileTextIcon,
+  Component1Icon,
+  RocketIcon,
+  CheckIcon,
+  PlayIcon
+} from '@radix-ui/react-icons'
 
 export const skills = [
     {
@@ -14,32 +29,32 @@ export const skills = [
     {
         name: 'Redux',
         description: 'Управление состоянием приложения',
-        icon: CodeIcon,
+        icon: GearIcon,
     },
     {
         name: 'Zustand',
         description: 'Минималистичное управление состоянием',
-        icon: CodeIcon,
+        icon: StackIcon,
     },
     {
         name: 'RTK Query',
         description: 'Запросы и кэширование на основе Redux Toolkit',
-        icon: CodeIcon,
+        icon: MixIcon,
     },
     {
         name: 'React Query',
         description: 'Работа с серверными данными и кэшированием',
-        icon: CodeIcon,
+        icon: FileTextIcon,
     },
     {
         name: 'SCSS / CSS Modules',
         description: 'Модульная стилизация и препроцессоры',
-        icon: CodeIcon,
+        icon: LayersIcon,
     },
     {
         name: 'Ant Design',
         description: 'Готовые UI-компоненты для бизнес-приложений',
-        icon: CodeIcon,
+        icon: Component1Icon,
     },
     {
         name: 'GitHub',
@@ -59,16 +74,16 @@ export const skills = [
     {
         name: 'Webpack / Vite',
         description: 'Настройка сборки с помощью современных инструментов',
-        icon: CodeIcon,
+        icon: RocketIcon,
     },
     {
         name: 'ESLint & Prettier',
         description: 'Форматирование и поддержка качества кода',
-        icon: CodeIcon,
+        icon: CheckIcon,
     },
     {
         name: 'Jest & Testing Library',
         description: 'Покрытие компонентов тестами (при необходимости)',
-        icon: CodeIcon,
+        icon: PlayIcon,
     },
 ]

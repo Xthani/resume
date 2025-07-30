@@ -14,7 +14,7 @@ const Skills = () => {
   const getItemsPerSlide = () => {
     if (typeof window === 'undefined') return 8
     const width = window.innerWidth
-    if (width < 640) return 4 // mobile: 2x2
+    if (width < 640) return 2 // mobile: 1x2 (по одной карточке в ряду)
     if (width < 1024) return 6 // tablet: 3x2
     return 8 // desktop: 4x2
   }
@@ -103,7 +103,7 @@ const Skills = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.3 }}
-              className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 p-6"
+              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 p-6"
             >
               {currentItems.map((skill, index) => {
                 const Icon = skill.icon
@@ -113,16 +113,16 @@ const Skills = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    className="bg-muted border border-muted rounded-2xl p-4 md:p-6 flex flex-col items-center text-center shadow-sm transition duration-300 hover:shadow-lg hover:border-accent group"
+                    className="bg-muted border border-muted rounded-2xl p-6 md:p-6 flex flex-col items-center text-center shadow-sm transition duration-300 hover:shadow-lg hover:border-accent group min-h-[140px] sm:min-h-[120px]"
                     whileHover={{ scale: 1.04 }}
                   >
-                    <div className="w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-muted mb-3 md:mb-4">
-                      <Icon className="w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 text-accent" />
+                    <div className="w-12 h-12 sm:w-12 sm:h-12 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-muted mb-3 md:mb-4">
+                      <Icon className="w-6 h-6 sm:w-6 sm:h-6 md:w-8 md:h-8 text-accent" />
                     </div>
-                    <div className="font-semibold text-sm md:text-lg text-foreground mb-1 md:mb-2 truncate w-full">
+                    <div className="font-semibold text-base md:text-lg text-foreground mb-2 md:mb-2 w-full">
                       {skill.name}
                     </div>
-                    <div className="text-xs md:text-sm text-foreground/70 text-wrap leading-tight">
+                    <div className="text-sm md:text-sm text-foreground/70 leading-relaxed px-1">
                       {skill.description}
                     </div>
                   </motion.div>
