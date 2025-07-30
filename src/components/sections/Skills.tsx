@@ -146,18 +146,18 @@ const Skills = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    className="bg-muted/10 border border-muted/20 rounded-2xl p-6 md:p-6 flex flex-col items-center text-center shadow-sm transition duration-300 hover:shadow-lg hover:border-accent group min-h-[140px] sm:min-h-[120px]"
+                    className="bg-muted/10 border border-muted/20 rounded-2xl p-6 md:p-6 flex flex-col items-center text-center shadow-sm transition duration-300 hover:shadow-lg hover:border-accent group h-[180px] sm:h-[160px]"
                     whileHover={{ scale: 1.04 }}
                   >
-                    <div className="w-12 h-12 sm:w-12 sm:h-12 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-muted/20 mb-3 md:mb-4">
+                    <div className="w-12 h-12 sm:w-12 sm:h-12 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-muted/20 mb-3 md:mb-4 flex-shrink-0">
                       <Icon className="w-6 h-6 sm:w-6 sm:h-6 md:w-8 md:h-8 text-accent" />
                     </div>
-                    <div className="font-semibold text-base md:text-lg text-foreground mb-2 md:mb-2 w-full">
+                    <div className="font-semibold text-base md:text-lg text-foreground mb-2 md:mb-2 w-full flex-shrink-0">
                       {skill.name}
                     </div>
-                    <div className="text-sm md:text-sm text-foreground/70 leading-relaxed px-1">
-                      {skill.description}
-                    </div>
+                    {/*<div className="text-sm md:text-sm text-foreground/70 leading-relaxed px-1 flex-1 flex items-center justify-center overflow-hidden min-h-0">*/}
+                    {/*  <span className="line-clamp-3 text-center">{skill.description}</span>*/}
+                    {/*</div>*/}
                   </motion.div>
                 )
               })}
