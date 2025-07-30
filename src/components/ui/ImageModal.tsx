@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Modal from './Modal'
 import { useLocale } from '@/contexts/LocaleContext'
 
@@ -15,7 +15,9 @@ interface ImageModalProps {
 
 const ImageModal: React.FC<ImageModalProps> = ({ imageSrc, imageAlt, isOpen, onClose }) => {
   const [scale, setScale] = useState(1)
+  const [position, setPosition] = useState({ x: 0, y: 0 })
   const { locale } = useLocale()
+  const imageRef = useRef<HTMLDivElement>(null)
 
   const handleZoomIn = () => {
     setScale(prev => Math.min(prev * 1.2, 3))
@@ -27,7 +29,100 @@ const ImageModal: React.FC<ImageModalProps> = ({ imageSrc, imageAlt, isOpen, onC
 
   const handleReset = () => {
     setScale(1)
+    setPosition({ x: 0, y: 0 })
   }
+
+  // Сброс состояния при открытии модального окна
+  useEffect(() => {
+    if (isOpen) {
+      setScale(1)
+      setPosition({ x: 0, y: 0 })
+    }
+  }, [isOpen])
+
+  // Обработка жестов для мобильных устройств
+  useEffect(() => {
+    if (!isOpen || !imageRef.current) return
+
+    let startDistance = 0
+    let startScale = 1
+    let startX = 0
+    let startY = 0
+    let isDragging = false
+
+    const handleTouchStart = (e: TouchEvent) => {
+      if (e.touches.length === 2) {
+        // Двупальцевый жест для масштабирования
+        const distance = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        )
+        startDistance = distance
+        startScale = scale
+      } else if (e.touches.length === 1) {
+        // Однопальцевый жест для перемещения
+        startX = e.touches[0].clientX - position.x
+        startY = e.touches[0].clientY - position.y
+      }
+    }
+
+    const handleTouchMove = (e: TouchEvent) => {
+      e.preventDefault()
+      
+      if (e.touches.length === 2) {
+        // Масштабирование
+        const distance = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        )
+        const newScale = Math.max(0.5, Math.min(3, startScale * (distance / startDistance)))
+        setScale(newScale)
+      } else if (e.touches.length === 1 && scale > 1) {
+        // Перемещение только при масштабировании
+        const newX = e.touches[0].clientX - startX
+        const newY = e.touches[0].clientY - startY
+        setPosition({ x: newX, y: newY })
+      }
+    }
+
+    // Обработка мыши для десктопа
+    const handleMouseDown = (e: MouseEvent) => {
+      if (scale > 1) {
+        isDragging = true
+        startX = e.clientX - position.x
+        startY = e.clientY - position.y
+      }
+    }
+
+    const handleMouseMove = (e: MouseEvent) => {
+      if (isDragging && scale > 1) {
+        const newX = e.clientX - startX
+        const newY = e.clientY - startY
+        setPosition({ x: newX, y: newY })
+      }
+    }
+
+    const handleMouseUp = () => {
+      isDragging = false
+    }
+
+    const element = imageRef.current
+    element.addEventListener('touchstart', handleTouchStart, { passive: false })
+    element.addEventListener('touchmove', handleTouchMove, { passive: false })
+    element.addEventListener('mousedown', handleMouseDown)
+    element.addEventListener('mousemove', handleMouseMove)
+    element.addEventListener('mouseup', handleMouseUp)
+    element.addEventListener('mouseleave', handleMouseUp)
+
+    return () => {
+      element.removeEventListener('touchstart', handleTouchStart)
+      element.removeEventListener('touchmove', handleTouchMove)
+      element.removeEventListener('mousedown', handleMouseDown)
+      element.removeEventListener('mousemove', handleMouseMove)
+      element.removeEventListener('mouseup', handleMouseUp)
+      element.removeEventListener('mouseleave', handleMouseUp)
+    }
+  }, [isOpen, scale, position])
 
   // Локализованные тексты
   const texts = {
@@ -39,7 +134,7 @@ const ImageModal: React.FC<ImageModalProps> = ({ imageSrc, imageAlt, isOpen, onC
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} className="p-2 md:p-4">
-      <div className="relative w-full h-full flex items-center justify-center">
+      <div className="relative w-full h-full flex items-center justify-center min-h-[60vh]">
         {/* Элементы управления */}
         <div className="absolute top-4 left-4 z-20 flex gap-2">
           <button
@@ -72,19 +167,30 @@ const ImageModal: React.FC<ImageModalProps> = ({ imageSrc, imageAlt, isOpen, onC
         </div>
 
         {/* Изображение */}
-        <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
+        <div 
+          ref={imageRef}
+          className="relative w-full h-full flex items-center justify-center overflow-hidden"
+        >
           <motion.div
-            style={{ scale }}
+            style={{ 
+              scale,
+              x: position.x,
+              y: position.y
+            }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="relative w-full h-full flex items-center justify-center"
+            className={`relative w-full h-full flex items-center justify-center ${scale > 1 ? 'cursor-grab active:cursor-grabbing' : 'cursor-zoom-in'}`}
           >
-            <Image
-              src={imageSrc}
-              alt={imageAlt}
-              fill
-              className="object-contain"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
-            />
+            <div className="relative w-full h-full max-w-full max-h-full">
+              <Image
+                src={imageSrc}
+                alt={imageAlt}
+                width={800}
+                height={600}
+                className="object-contain w-full h-full max-w-full max-h-full"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
+                priority
+              />
+            </div>
           </motion.div>
         </div>
 

@@ -25,7 +25,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
   }
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} className="p-6 md:p-8">
+    <Modal isOpen={isOpen} onClose={onClose} className="p-6 md:p-8 overflow-y-auto">
       <div className="space-y-6">
         {/* Заголовок */}
         <div className="text-center">

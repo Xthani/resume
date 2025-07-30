@@ -54,7 +54,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, className = ''
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className={`relative max-w-4xl w-full max-h-[90vh] overflow-y-auto bg-background border border-muted/20 rounded-xl shadow-2xl ${className}`}
+            className={`relative max-w-4xl w-full max-h-[90vh] overflow-hidden bg-background border border-muted/20 rounded-xl shadow-2xl ${className}`}
             onClick={(e) => e.stopPropagation()}
           >
             <button
