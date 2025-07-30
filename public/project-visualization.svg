@@ -1,0 +1,137 @@
+<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f3460;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#0f3460;stop-opacity:0.7" />
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e94560;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c81d25;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="800" fill="url(#bgGradient)"/>
+  
+  <!-- Title -->
+  <text x="400" y="80" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="32" font-weight="bold">EVRAZ Prom-Ecosystem</text>
+  <text x="400" y="110" text-anchor="middle" fill="#e94560" font-family="Arial, sans-serif" font-size="16">Промышленная платформа управления</text>
+  
+  <!-- Central Hub -->
+  <circle cx="400" cy="400" r="80" fill="url(#accentGradient)" filter="url(#glow)"/>
+  <text x="400" y="410" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">ЦЕНТРАЛЬНАЯ</text>
+  <text x="400" y="430" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">ПЛАТФОРМА</text>
+  
+  <!-- Mining Module -->
+  <rect x="50" y="200" width="120" height="80" rx="10" fill="url(#cardGradient)" stroke="#e94560" stroke-width="2"/>
+  <text x="110" y="230" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">ДОБЫЧА</text>
+  <text x="110" y="250" text-anchor="middle" fill="#e94560" font-family="Arial, sans-serif" font-size="10">Mining</text>
+  <text x="110" y="265" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="9">Шахты • Рудники</text>
+  
+  <!-- Sinking Module -->
+  <rect x="50" y="320" width="120" height="80" rx="10" fill="url(#cardGradient)" stroke="#e94560" stroke-width="2"/>
+  <text x="110" y="350" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">ПРОХОДКА</text>
+  <text x="110" y="370" text-anchor="middle" fill="#e94560" font-family="Arial, sans-serif" font-size="10">Sinking</text>
+  <text x="110" y="385" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="9">Бригады • Работы</text>
+  
+  <!-- Beneficiation Module -->
+  <rect x="50" y="440" width="120" height="80" rx="10" fill="url(#cardGradient)" stroke="#e94560" stroke-width="2"/>
+  <text x="110" y="470" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">ОБОГАЩЕНИЕ</text>
+  <text x="110" y="490" text-anchor="middle" fill="#e94560" font-family="Arial, sans-serif" font-size="10">Beneficiation</text>
+  <text x="110" y="505" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="9">Выпуск • Отходы</text>
+  
+  <!-- Planning Module -->
+  <rect x="630" y="200" width="120" height="80" rx="10" fill="url(#cardGradient)" stroke="#e94560" stroke-width="2"/>
+  <text x="690" y="230" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">ПЛАНИРОВАНИЕ</text>
+  <text x="690" y="250" text-anchor="middle" fill="#e94560" font-family="Arial, sans-serif" font-size="10">Planning</text>
+  <text x="690" y="265" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="9">Графики • Расписания</text>
+  
+  <!-- Admin Module -->
+  <rect x="630" y="320" width="120" height="80" rx="10" fill="url(#cardGradient)" stroke="#e94560" stroke-width="2"/>
+  <text x="690" y="350" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">АДМИНИСТРАЦИЯ</text>
+  <text x="690" y="370" text-anchor="middle" fill="#e94560" font-family="Arial, sans-serif" font-size="10">Admin</text>
+  <text x="690" y="385" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="9">Пользователи • Роли</text>
+  
+  <!-- Degassing Module -->
+  <rect x="630" y="440" width="120" height="80" rx="10" fill="url(#cardGradient)" stroke="#e94560" stroke-width="2"/>
+  <text x="690" y="470" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">ДЕГАЗАЦИЯ</text>
+  <text x="690" y="490" text-anchor="middle" fill="#e94560" font-family="Arial, sans-serif" font-size="10">Degassing</text>
+  <text x="690" y="505" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="9">Безопасность</text>
+  
+  <!-- Connection Lines -->
+  <line x1="170" y1="240" x2="320" y2="400" stroke="#e94560" stroke-width="2" opacity="0.7"/>
+  <line x1="170" y1="360" x2="320" y2="400" stroke="#e94560" stroke-width="2" opacity="0.7"/>
+  <line x1="170" y1="480" x2="320" y2="400" stroke="#e94560" stroke-width="2" opacity="0.7"/>
+  <line x1="630" y1="240" x2="480" y2="400" stroke="#e94560" stroke-width="2" opacity="0.7"/>
+  <line x1="630" y1="360" x2="480" y2="400" stroke="#e94560" stroke-width="2" opacity="0.7"/>
+  <line x1="630" y1="480" x2="480" y2="400" stroke="#e94560" stroke-width="2" opacity="0.7"/>
+  
+  <!-- Technology Stack -->
+  <rect x="200" y="600" width="400" height="120" rx="10" fill="url(#cardGradient)" stroke="#e94560" stroke-width="2"/>
+  <text x="400" y="625" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">ТЕХНОЛОГИЧЕСКИЙ СТЕК</text>
+  
+  <!-- Tech Icons -->
+  <circle cx="250" cy="650" r="15" fill="#61dafb"/>
+  <text x="250" y="655" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="10" font-weight="bold">R</text>
+  
+  <circle cx="300" cy="650" r="15" fill="#3178c6"/>
+  <text x="300" y="655" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="10" font-weight="bold">TS</text>
+  
+  <circle cx="350" cy="650" r="15" fill="#764abc"/>
+  <text x="350" y="655" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="10" font-weight="bold">R</text>
+  
+  <circle cx="400" cy="650" r="15" fill="#cc3534"/>
+  <text x="400" y="655" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="10" font-weight="bold">R</text>
+  
+  <circle cx="450" cy="650" r="15" fill="#f7df1e"/>
+  <text x="450" y="655" text-anchor="middle" fill="#000000" font-family="Arial, sans-serif" font-size="10" font-weight="bold">JS</text>
+  
+  <circle cx="500" cy="650" r="15" fill="#339933"/>
+  <text x="500" y="655" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="10" font-weight="bold">D</text>
+  
+  <circle cx="550" cy="650" r="15" fill="#326ce5"/>
+  <text x="550" y="655" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="10" font-weight="bold">K</text>
+  
+  <!-- Tech Labels -->
+  <text x="250" y="680" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="8">React</text>
+  <text x="300" y="680" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="8">TypeScript</text>
+  <text x="350" y="680" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="8">Redux</text>
+  <text x="400" y="680" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="8">SCSS</text>
+  <text x="450" y="680" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="8">Jest</text>
+  <text x="500" y="680" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="8">Docker</text>
+  <text x="550" y="680" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="8">K8s</text>
+  
+  <!-- Company Logo Area -->
+  <rect x="50" y="50" width="200" height="40" rx="5" fill="url(#cardGradient)" stroke="#e94560" stroke-width="1"/>
+  <text x="150" y="75" text-anchor="middle" fill="#e94560" font-family="Arial, sans-serif" font-size="16" font-weight="bold">EVRAZ</text>
+  
+  <!-- Data Flow Indicators -->
+  <circle cx="400" cy="200" r="8" fill="#00ff00" opacity="0.8">
+    <animate attributeName="opacity" values="0.8;0.2;0.8" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="400" cy="600" r="8" fill="#00ff00" opacity="0.8">
+    <animate attributeName="opacity" values="0.8;0.2;0.8" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="200" cy="400" r="8" fill="#00ff00" opacity="0.8">
+    <animate attributeName="opacity" values="0.8;0.2;0.8" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="600" cy="400" r="8" fill="#00ff00" opacity="0.8">
+    <animate attributeName="opacity" values="0.8;0.2;0.8" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Scale Indicator -->
+  <text x="750" y="780" text-anchor="end" fill="#ffffff" font-family="Arial, sans-serif" font-size="10">150+ компонентов</text>
+  <text x="750" y="795" text-anchor="end" fill="#ffffff" font-family="Arial, sans-serif" font-size="10">Enterprise решение</text>
+</svg> 

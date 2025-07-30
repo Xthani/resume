@@ -29,19 +29,12 @@ const Skills = () => {
   const [itemsPerSlide, setItemsPerSlide] = useState(8) // Начальное значение для SSR
   const totalSlides = Math.ceil(skills.length / itemsPerSlide)
 
-  // Проверка на мобильное устройство
-  const isMobile = () => {
-    if (typeof window === 'undefined') return false
-    return window.innerWidth < 640
-  }
 
-  const [isMobileDevice, setIsMobileDevice] = useState(false)
 
   // Инициализация после монтирования компонента
   useEffect(() => {
     setIsMounted(true)
     setItemsPerSlide(getItemsPerSlide())
-    setIsMobileDevice(isMobile())
   }, [])
 
   // Обработчик изменения размера окна
@@ -50,7 +43,6 @@ const Skills = () => {
 
     const handleResize = () => {
       setItemsPerSlide(getItemsPerSlide())
-      setIsMobileDevice(isMobile())
     }
 
     window.addEventListener('resize', handleResize)
