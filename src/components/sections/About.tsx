@@ -1,6 +1,7 @@
 'use client'
 
 import {motion} from 'framer-motion'
+import { GlobeIcon } from '@radix-ui/react-icons'
 
 const About = () => {
     return (
@@ -38,6 +39,51 @@ const About = () => {
     </p>
 </div>
 
+                    </motion.div>
+
+                    {/* Языки */}
+                    <motion.div
+                        initial={{opacity: 0, y: 20}}
+                        animate={{opacity: 1, y: 0}}
+                        transition={{duration: 0.5, delay: 0.6}}
+                        className="space-y-6 max-w-2xl"
+                    >
+                        <div className="flex items-center justify-center space-x-2 mb-4">
+                            <GlobeIcon className="w-6 h-6 text-accent" />
+                            <h3 className="text-xl md:text-2xl font-semibold text-foreground">
+                                Языки
+                            </h3>
+                        </div>
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-md mx-auto">
+                            <motion.div
+                                initial={{opacity: 0, x: -20}}
+                                animate={{opacity: 1, x: 0}}
+                                transition={{duration: 0.5, delay: 0.8}}
+                                className="bg-muted border border-muted rounded-xl p-4 text-center hover:border-accent transition-colors duration-300"
+                            >
+                                <div className="font-semibold text-lg text-foreground mb-1">
+                                    Русский
+                                </div>
+                                <div className="text-sm text-foreground/70">
+                                    Родной язык
+                                </div>
+                            </motion.div>
+                            
+                            <motion.div
+                                initial={{opacity: 0, x: 20}}
+                                animate={{opacity: 1, x: 0}}
+                                transition={{duration: 0.5, delay: 0.9}}
+                                className="bg-muted border border-muted rounded-xl p-4 text-center hover:border-accent transition-colors duration-300"
+                            >
+                                <div className="font-semibold text-lg text-foreground mb-1">
+                                    Английский
+                                </div>
+                                <div className="text-sm text-foreground/70">
+                                    B1 (Intermediate)
+                                </div>
+                            </motion.div>
+                        </div>
                     </motion.div>
                 </motion.div>
             </div>
