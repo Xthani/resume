@@ -60,7 +60,7 @@ const About = () => {
                                 initial={{opacity: 0, x: -20}}
                                 animate={{opacity: 1, x: 0}}
                                 transition={{duration: 0.5, delay: 0.8}}
-                                className="bg-muted border border-muted rounded-xl p-4 text-center hover:border-accent transition-colors duration-300"
+                                className="bg-muted/10 border border-muted/20 rounded-xl p-4 text-center hover:border-accent transition-colors duration-300"
                             >
                                 <div className="font-semibold text-lg text-foreground mb-1">
                                     Русский
@@ -74,7 +74,7 @@ const About = () => {
                                 initial={{opacity: 0, x: 20}}
                                 animate={{opacity: 1, x: 0}}
                                 transition={{duration: 0.5, delay: 0.9}}
-                                className="bg-muted border border-muted rounded-xl p-4 text-center hover:border-accent transition-colors duration-300"
+                                className="bg-muted/10 border border-muted/20 rounded-xl p-4 text-center hover:border-accent transition-colors duration-300"
                             >
                                 <div className="font-semibold text-lg text-foreground mb-1">
                                     Английский

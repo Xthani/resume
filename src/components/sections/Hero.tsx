@@ -63,7 +63,7 @@ const Hero = () => {
             className="px-8 py-4 bg-cta text-white rounded-full text-lg font-medium
                      hover:bg-cta/90 transition-colors duration-300
                      focus:outline-none focus:ring-2 focus:ring-cta focus:ring-offset-2
-                     dark:focus:ring-offset-background"
+                     focus:ring-offset-background"
           >
             Связаться
           </motion.button>

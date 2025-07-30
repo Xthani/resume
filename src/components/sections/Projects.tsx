@@ -79,7 +79,7 @@ const Projects = () => {
             <motion.div
               key={project.title}
               variants={item}
-              className="bg-muted border border-muted rounded-xl p-6 shadow-sm transition duration-300 hover:shadow-lg hover:border-accent/20"
+              className="bg-muted/10 border border-muted/20 rounded-xl p-6 shadow-sm transition duration-300 hover:shadow-lg hover:border-accent/20"
               whileHover={{ scale: 1.02 }}
             >
               <div className="flex flex-col h-full">

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Navbar from '@/components/ui/Navbar'
+import { ThemeProvider } from '@/contexts/ThemeContext'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin', 'cyrillic'] })
@@ -35,11 +36,13 @@ export default function RootLayout({
         <meta name="twitter:description" content="Лендинг с навыками, проектами и контактами" />
         <meta name="twitter:image" content="/preview.png" />
       </head>
-      <body className={`${inter.className} dark:bg-background bg-white text-foreground transition-colors`}>
-        <Navbar />
-        <main className="pt-16">
-          {children}
-        </main>
+      <body className={`${inter.className} bg-background text-foreground transition-colors`}>
+        <ThemeProvider>
+          <Navbar />
+          <main className="pt-16">
+            {children}
+          </main>
+        </ThemeProvider>
       </body>
     </html>
   )

@@ -10,9 +10,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: '#111827',
-        foreground: '#f1f5f9',
-        muted: '#cbd5e1',
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
+        muted: 'hsl(var(--muted))',
         accent: '#10b981',
         cta: '#ec4899'
       }

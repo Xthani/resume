@@ -115,7 +115,7 @@ const Skills = () => {
           {totalSlides > 1 && (
             <button
               onClick={handlePrev}
-              className="absolute left-0 top-6 bottom-6 z-10 bg-background/80 backdrop-blur-sm border-muted hover:bg-muted/30 hover:bg-gray-900/30 transition-colors flex items-center justify-center w-12 rounded-2xl cursor-pointer"
+              className="absolute left-0 top-6 bottom-6 z-10 bg-background/80 backdrop-blur-sm border border-muted/20 hover:bg-muted/10 transition-colors flex items-center justify-center w-12 rounded-2xl cursor-pointer"
               aria-label="Предыдущие навыки"
             >
               <ChevronLeftIcon className="w-6 h-6 text-foreground" />
@@ -140,10 +140,10 @@ const Skills = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    className="bg-muted border border-muted rounded-2xl p-6 md:p-6 flex flex-col items-center text-center shadow-sm transition duration-300 hover:shadow-lg hover:border-accent group min-h-[140px] sm:min-h-[120px]"
+                    className="bg-muted/10 border border-muted/20 rounded-2xl p-6 md:p-6 flex flex-col items-center text-center shadow-sm transition duration-300 hover:shadow-lg hover:border-accent group min-h-[140px] sm:min-h-[120px]"
                     whileHover={{ scale: 1.04 }}
                   >
-                    <div className="w-12 h-12 sm:w-12 sm:h-12 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-muted mb-3 md:mb-4">
+                    <div className="w-12 h-12 sm:w-12 sm:h-12 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-muted/20 mb-3 md:mb-4">
                       <Icon className="w-6 h-6 sm:w-6 sm:h-6 md:w-8 md:h-8 text-accent" />
                     </div>
                     <div className="font-semibold text-base md:text-lg text-foreground mb-2 md:mb-2 w-full">
@@ -162,7 +162,7 @@ const Skills = () => {
           {totalSlides > 1 && (
             <button
               onClick={handleNext}
-              className="absolute right-0 top-6 bottom-6 z-10 bg-background/80 backdrop-blur-sm border-muted hover:bg-muted/30 hover:bg-gray-900/30 transition-colors flex items-center justify-center w-12 rounded-2xl cursor-pointer"
+              className="absolute right-0 top-6 bottom-6 z-10 bg-background/80 backdrop-blur-sm border border-muted/20 hover:bg-muted/10 transition-colors flex items-center justify-center w-12 rounded-2xl cursor-pointer"
               aria-label="Следующие навыки"
             >
               <ChevronRightIcon className="w-6 h-6 text-foreground" />
