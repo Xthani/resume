@@ -11,9 +11,16 @@ interface ImageModalProps {
   imageAlt: string
   isOpen: boolean
   onClose: () => void
+  onBackdropClick?: () => void
 }
 
-const ImageModal: React.FC<ImageModalProps> = ({ imageSrc, imageAlt, isOpen, onClose }) => {
+const ImageModal: React.FC<ImageModalProps> = ({ 
+  imageSrc, 
+  imageAlt, 
+  isOpen, 
+  onClose, 
+  onBackdropClick 
+}) => {
   const [scale, setScale] = useState(1)
   const [position, setPosition] = useState({ x: 0, y: 0 })
   const { locale } = useLocale()
@@ -30,6 +37,13 @@ const ImageModal: React.FC<ImageModalProps> = ({ imageSrc, imageAlt, isOpen, onC
   const handleReset = () => {
     setScale(1)
     setPosition({ x: 0, y: 0 })
+  }
+
+  const handleBackdropClick = () => {
+    onClose()
+    if (onBackdropClick) {
+      onBackdropClick()
+    }
   }
 
   // Сброс состояния при открытии модального окна
@@ -133,7 +147,7 @@ const ImageModal: React.FC<ImageModalProps> = ({ imageSrc, imageAlt, isOpen, onC
   }
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} className="p-2 md:p-4">
+    <Modal isOpen={isOpen} onClose={onClose} onBackdropClick={handleBackdropClick} className="p-2 md:p-4" zIndex={60}>
       <div className="relative w-full h-full flex items-center justify-center min-h-[60vh]">
         {/* Элементы управления */}
         <div className="absolute top-4 left-4 z-20 flex gap-2">
