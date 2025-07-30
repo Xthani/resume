@@ -71,7 +71,7 @@ const Hero = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="px-8 py-4 bg-cta text-white rounded-full text-lg font-medium
-                     hover:bg-cta/90 transition-colors duration-300
+                     hover:bg-cta/90 transition-colors duration-300 cursor-pointer
                      focus:outline-none focus:ring-2 focus:ring-cta focus:ring-offset-2
                      focus:ring-offset-background"
           >

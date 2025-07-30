@@ -27,7 +27,7 @@ const ThemeToggle = () => {
         onClick={toggleTheme}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className="p-2 rounded-lg bg-muted/10 hover:bg-muted/20 transition-colors
+        className="p-2 rounded-lg bg-muted/10 hover:bg-muted/20 transition-colors cursor-pointer
                  text-foreground focus:outline-none focus:ring-2 focus:ring-accent
                  focus:ring-offset-2 focus:ring-offset-background"
         aria-label={theme === 'dark' ? 'Переключить на светлую тему' : 'Переключить на темную тему'}

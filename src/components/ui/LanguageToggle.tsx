@@ -30,7 +30,7 @@ const LanguageToggle = () => {
     <div className="flex items-center space-x-1 bg-muted/10 rounded-lg p-1">
       <motion.button
         onClick={() => handleLanguageChange('ru')}
-        className={`px-3 py-1.5 text-sm font-medium rounded-md transition-colors ${
+        className={`px-3 py-1.5 text-sm font-medium rounded-md transition-colors cursor-pointer ${
           locale === 'ru'
             ? 'bg-accent text-white'
             : 'text-foreground/70 hover:text-foreground'
@@ -42,7 +42,7 @@ const LanguageToggle = () => {
       </motion.button>
       <motion.button
         onClick={() => handleLanguageChange('en')}
-        className={`px-3 py-1.5 text-sm font-medium rounded-md transition-colors ${
+        className={`px-3 py-1.5 text-sm font-medium rounded-md transition-colors cursor-pointer ${
           locale === 'en'
             ? 'bg-accent text-white'
             : 'text-foreground/70 hover:text-foreground'

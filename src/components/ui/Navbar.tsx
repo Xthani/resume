@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import ThemeToggle from './ThemeToggle'
 import LanguageToggle from './LanguageToggle'
@@ -10,6 +10,8 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
   const { t, mounted: localeMounted } = useLocale()
+  const mobileMenuRef = useRef<HTMLDivElement>(null)
+  const menuButtonRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
     setMounted(true)
@@ -24,15 +26,60 @@ const Navbar = () => {
         e.preventDefault()
         const target = document.querySelector((e.currentTarget as HTMLAnchorElement).getAttribute('href')!)
         if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth'
-          })
           // Закрываем мобильное меню при клике на ссылку
           setIsMobileMenuOpen(false)
+          
+          // Добавляем небольшую задержку для скролла, чтобы меню успело закрыться
+          setTimeout(() => {
+            target.scrollIntoView({
+              behavior: 'smooth'
+            })
+          }, 100)
         }
       })
     })
   }, [mounted])
+
+  // Обработчик клика вне меню
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        isMobileMenuOpen &&
+        mobileMenuRef.current &&
+        !mobileMenuRef.current.contains(event.target as Node) &&
+        menuButtonRef.current &&
+        !menuButtonRef.current.contains(event.target as Node)
+      ) {
+        setIsMobileMenuOpen(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [isMobileMenuOpen])
+
+  // Обработчик скролла для закрытия мобильного меню
+  useEffect(() => {
+    let scrollTimeout: NodeJS.Timeout
+
+    const handleScroll = () => {
+      if (isMobileMenuOpen) {
+        // Добавляем debounce для обработчика скролла
+        clearTimeout(scrollTimeout)
+        scrollTimeout = setTimeout(() => {
+          setIsMobileMenuOpen(false)
+        }, 50)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      clearTimeout(scrollTimeout)
+    }
+  }, [isMobileMenuOpen])
 
   // Не рендерим навигацию пока не загрузится локаль
   if (!mounted || !localeMounted) {
@@ -93,6 +140,7 @@ const Navbar = () => {
                        text-foreground focus:outline-none focus:ring-2 focus:ring-accent
                        focus:ring-offset-2 focus:ring-offset-background"
               aria-label="Открыть меню"
+              ref={menuButtonRef}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -122,6 +170,7 @@ const Navbar = () => {
                 exit={{ opacity: 0, height: 0 }}
                 transition={{ duration: 0.2 }}
                 className="md:hidden border-t border-muted/20 bg-background/95 backdrop-blur-sm"
+                ref={mobileMenuRef}
               >
                 <div className="py-4 space-y-2">
                   {navItems.map((item) => (
