@@ -8,6 +8,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@radix-ui/react-icons'
 const Skills = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
+  const [isMounted, setIsMounted] = useState(false)
   const autoPlayRef = useRef<NodeJS.Timeout | null>(null)
 
   // Количество элементов на слайде в зависимости от размера экрана
@@ -19,18 +20,26 @@ const Skills = () => {
     return 8 // desktop: 4x2
   }
 
-  const [itemsPerSlide, setItemsPerSlide] = useState(getItemsPerSlide())
+  const [itemsPerSlide, setItemsPerSlide] = useState(8) // Начальное значение для SSR
   const totalSlides = Math.ceil(skills.length / itemsPerSlide)
+
+  // Инициализация после монтирования компонента
+  useEffect(() => {
+    setIsMounted(true)
+    setItemsPerSlide(getItemsPerSlide())
+  }, [])
 
   // Обработчик изменения размера окна
   useEffect(() => {
+    if (!isMounted) return
+
     const handleResize = () => {
       setItemsPerSlide(getItemsPerSlide())
     }
 
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
-  }, [])
+  }, [isMounted])
 
   // Автоскролл
   useEffect(() => {
@@ -76,6 +85,24 @@ const Skills = () => {
   }
 
   const currentItems = getCurrentItems()
+
+  // Не рендерим компонент до монтирования на клиенте
+  if (!isMounted) {
+    return (
+      <section id="skills" className="min-h-screen flex items-center justify-center px-4 py-16 bg-background scroll-mt-16">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-10 text-center">Навыки и технологии</h2>
+          <div className="flex justify-center">
+            <div className="animate-pulse bg-muted rounded-2xl p-6 w-full max-w-md">
+              <div className="h-4 bg-muted/50 rounded mb-4"></div>
+              <div className="h-4 bg-muted/50 rounded mb-4"></div>
+              <div className="h-4 bg-muted/50 rounded"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    )
+  }
 
   return (
     <section id="skills" className="min-h-screen flex items-center justify-center px-4 py-16 bg-background scroll-mt-16">
