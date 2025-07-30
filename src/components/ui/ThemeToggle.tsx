@@ -9,17 +9,17 @@ const ThemeToggle = () => {
 
   if (!mounted) {
     return (
-      <div className="p-2 rounded-lg bg-muted/10 w-9 h-9 flex items-center justify-center">
-        <div className="w-5 h-5 bg-muted/30 rounded animate-pulse" />
-      </div>
+              <div className="p-3 md:p-2 rounded-lg bg-muted/10 w-12 h-12 md:w-9 md:h-9 flex items-center justify-center">
+          <div className="w-6 h-6 md:w-5 md:h-5 bg-muted/30 rounded animate-pulse" />
+        </div>
     )
   }
 
   return (
     <ClientOnly
       fallback={
-        <div className="p-2 rounded-lg bg-muted/10 w-9 h-9 flex items-center justify-center">
-          <div className="w-5 h-5 bg-muted/30 rounded animate-pulse" />
+        <div className="p-3 md:p-2 rounded-lg bg-muted/10 w-12 h-12 md:w-9 md:h-9 flex items-center justify-center">
+          <div className="w-6 h-6 md:w-5 md:h-5 bg-muted/30 rounded animate-pulse" />
         </div>
       }
     >
@@ -27,7 +27,7 @@ const ThemeToggle = () => {
         onClick={toggleTheme}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className="p-2 rounded-lg bg-muted/10 hover:bg-muted/20 transition-colors cursor-pointer
+        className="p-3 md:p-2 rounded-lg bg-muted/10 hover:bg-muted/20 transition-colors cursor-pointer
                  text-foreground focus:outline-none focus:ring-2 focus:ring-accent
                  focus:ring-offset-2 focus:ring-offset-background"
         aria-label={theme === 'dark' ? 'Переключить на светлую тему' : 'Переключить на темную тему'}
@@ -36,7 +36,7 @@ const ThemeToggle = () => {
           initial={false}
           animate={{ rotate: theme === 'dark' ? 0 : 180 }}
           transition={{ duration: 0.3 }}
-          className="w-5 h-5"
+          className="w-6 h-6 md:w-5 md:h-5"
         >
           {theme === 'dark' ? (
             <svg
@@ -45,7 +45,7 @@ const ThemeToggle = () => {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-5 h-5"
+              className="w-6 h-6 md:w-5 md:h-5"
             >
               <path
                 strokeLinecap="round"
@@ -60,7 +60,7 @@ const ThemeToggle = () => {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-5 h-5"
+              className="w-6 h-6 md:w-5 md:h-5"
             >
               <path
                 strokeLinecap="round"

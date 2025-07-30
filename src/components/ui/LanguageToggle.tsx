@@ -15,11 +15,11 @@ const LanguageToggle = () => {
 
   if (!mounted) {
     return (
-      <div className="flex items-center space-x-1 bg-muted/10 rounded-lg p-1">
-        <div className="px-3 py-1.5 text-sm font-medium rounded-md bg-muted/30 animate-pulse">
+      <div className="flex items-center space-x-2 bg-muted/10 rounded-lg p-2 md:p-1 h-12 md:h-9">
+        <div className="px-4 py-2 md:px-3 md:py-1.5 text-sm font-medium rounded-md bg-muted/30 animate-pulse">
           RU
         </div>
-        <div className="px-3 py-1.5 text-sm font-medium rounded-md bg-muted/30 animate-pulse">
+        <div className="px-4 py-2 md:px-3 md:py-1.5 text-sm font-medium rounded-md bg-muted/30 animate-pulse">
           EN
         </div>
       </div>
@@ -27,11 +27,11 @@ const LanguageToggle = () => {
   }
 
   return (
-    <div className="flex items-center space-x-1 bg-muted/10 rounded-lg p-1">
+    <div className="flex items-center space-x-2 bg-muted/10 rounded-lg p-2 md:p-1 h-12 md:h-9">
       <motion.button
         onClick={() => handleLanguageChange('ru')}
         disabled={isChanging}
-        className={`px-3 py-1.5 text-sm font-medium rounded-md transition-colors ${
+        className={`px-4 py-2 md:px-3 md:py-1.5 text-sm font-medium rounded-md transition-colors ${
           isChanging 
             ? 'opacity-50 cursor-not-allowed' 
             : 'cursor-pointer'
@@ -45,7 +45,7 @@ const LanguageToggle = () => {
       >
         {isChanging && locale === 'ru' ? (
           <div className="flex items-center space-x-1">
-            <div className="w-3 h-3 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+            <div className="w-3 h-3 md:w-3 md:h-3 w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
             <span>RU</span>
           </div>
         ) : (
@@ -55,7 +55,7 @@ const LanguageToggle = () => {
       <motion.button
         onClick={() => handleLanguageChange('en')}
         disabled={isChanging}
-        className={`px-3 py-1.5 text-sm font-medium rounded-md transition-colors ${
+        className={`px-4 py-2 md:px-3 md:py-1.5 text-sm font-medium rounded-md transition-colors ${
           isChanging 
             ? 'opacity-50 cursor-not-allowed' 
             : 'cursor-pointer'
@@ -69,7 +69,7 @@ const LanguageToggle = () => {
       >
         {isChanging && locale === 'en' ? (
           <div className="flex items-center space-x-1">
-            <div className="w-3 h-3 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+            <div className="w-3 h-3 md:w-3 md:h-3 w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
             <span>EN</span>
           </div>
         ) : (

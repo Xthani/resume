@@ -85,9 +85,9 @@ const Navbar = () => {
   if (!mounted || !localeMounted) {
     return (
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-muted/20">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center space-x-4">
+              <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-20 md:h-16">
+          <div className="flex items-center space-x-4">
               <div className="w-20 h-4 bg-muted/30 rounded animate-pulse" />
             </div>
             <div className="flex items-center space-x-4">
@@ -110,7 +110,7 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-muted/20">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20 md:h-16">
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
@@ -131,12 +131,12 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center space-x-2">
+          <div className="md:hidden flex items-center space-x-3 md:space-x-2">
             <LanguageToggle />
             <ThemeToggle />
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 rounded-lg bg-muted/10 hover:bg-muted/20 transition-colors
+              className="p-3 md:p-2 rounded-lg bg-muted/10 hover:bg-muted/20 transition-colors
                        text-foreground focus:outline-none focus:ring-2 focus:ring-accent
                        focus:ring-offset-2 focus:ring-offset-background"
               aria-label="Открыть меню"
@@ -148,7 +148,7 @@ const Navbar = () => {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-5 h-5"
+                className="w-6 h-6 md:w-5 md:h-5"
               >
                 <path
                   strokeLinecap="round"
@@ -172,12 +172,12 @@ const Navbar = () => {
                 className="md:hidden border-t border-muted/20 bg-background/95 backdrop-blur-sm"
                 ref={mobileMenuRef}
               >
-                <div className="py-4 space-y-2">
+                <div className="py-4 md:py-4 py-6 space-y-2 md:space-y-2 space-y-3">
                   {navItems.map((item) => (
                     <a
                       key={item.href}
                       href={item.href}
-                      className="block px-4 py-2 text-foreground hover:text-accent hover:bg-muted/10 transition-colors"
+                      className="block px-4 py-2 md:px-4 md:py-2 px-6 py-3 text-foreground hover:text-accent hover:bg-muted/10 transition-colors"
                     >
                       {item.label}
                     </a>
