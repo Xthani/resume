@@ -9,7 +9,7 @@ type ExperienceItem = {
   type: 'job' | 'course';
   title: string;
   org: string;
-  period: string;
+  period?: string;
   description: string;
 }
 
@@ -36,7 +36,7 @@ function castExperience(arr: unknown[]): ExperienceItem[] {
       (obj.type === 'job' || obj.type === 'course') &&
       typeof obj.title === 'string' &&
       typeof obj.org === 'string' &&
-      typeof obj.period === 'string' &&
+      (obj.period === undefined || typeof obj.period === 'string') &&
       typeof obj.description === 'string'
     );
   });
@@ -63,7 +63,7 @@ const Experience = () => {
             <h3 className="text-2xl font-semibold text-foreground mb-6">{t('experience.jobs.title')}</h3>
             {jobs.map((job) => (
               <motion.div
-                key={`${job.org}-${job.period}`}
+                key={`${job.org}-${job.org}`}
                 variants={item}
                 className="border-b border-muted/20 pb-4"
               >
@@ -72,7 +72,7 @@ const Experience = () => {
                     <h4 className="text-base sm:text-lg font-semibold text-foreground">{job.title}</h4>
                     <p className="text-sm text-foreground/70">{job.org}</p>
                   </div>
-                  <span className="text-sm text-foreground/70 mt-1 sm:mt-0">{job.period}</span>
+                  {job.period && <span className="text-sm text-foreground/70 mt-1 sm:mt-0">{job.period}</span>}
                 </div>
                 <p className="text-sm text-foreground/70">{job.description}</p>
               </motion.div>
@@ -98,7 +98,7 @@ const Experience = () => {
                     <h4 className="font-semibold text-lg text-foreground">{course.title}</h4>
                     <p className="text-sm text-foreground/70">{course.org}</p>
                   </div>
-                  <span className="text-sm text-foreground/70">{course.period}</span>
+                  {course.period && <span className="text-sm text-foreground/70">{course.period}</span>}
                 </div>
                 <p className="text-sm text-foreground/70">{course.description}</p>
               </motion.div>

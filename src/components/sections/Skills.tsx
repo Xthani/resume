@@ -145,7 +145,7 @@ const Skills = () => {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.9, ease: "easeInOut" }}
               className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 p-6"
             >
               {currentItems.map((skill, index) => {
@@ -153,9 +153,9 @@ const Skills = () => {
                 return (
                   <motion.div
                     key={`${skill.name}-${currentSlide}-${index}`}
-                    initial={isMobileDevice ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                    initial={{ opacity: 1, y: 0 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={isMobileDevice ? { duration: 0 } : { delay: index * 0.1 }}
+                    transition={{ duration: 0 }}
                     className="bg-muted/10 border border-muted/20 rounded-2xl p-6 md:p-6 flex flex-col items-center text-center shadow-sm transition duration-300 hover:shadow-lg hover:border-accent group h-[180px] sm:h-[160px]"
                     whileHover={{ scale: 1.04 }}
                   >

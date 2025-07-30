@@ -13,6 +13,15 @@ const translations: Record<Locale, Translations> = {
   en: en as Translations,
 }
 
+// Функция для получения куки на клиенте
+function getCookie(name: string): string | null {
+  if (typeof document === 'undefined') return null
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop()?.split(';').shift() || null
+  return null
+}
+
 export function LocaleProvider({ children }: { children: ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>('ru')
   const [mounted, setMounted] = useState(false)
@@ -26,8 +35,15 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
     // Получаем локаль из URL при загрузке только на клиенте
     const pathSegments = pathname.split('/')
     const localeFromPath = pathSegments[1] as Locale
+    
     if (localeFromPath && (localeFromPath === 'ru' || localeFromPath === 'en')) {
       setLocaleState(localeFromPath)
+    } else {
+      // Если локаль не в URL, проверяем куки
+      const localeFromCookie = getCookie('locale') as Locale
+      if (localeFromCookie && (localeFromCookie === 'ru' || localeFromCookie === 'en')) {
+        setLocaleState(localeFromCookie)
+      }
     }
   }, [pathname])
 
@@ -45,8 +61,8 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
       // Используем router.push для программной навигации без перезагрузки
       await router.push(newPath)
       
-      // Сохраняем в куки
-      document.cookie = `locale=${newLocale}; path=/; max-age=31536000`
+      // Сохраняем в куки с теми же параметрами, что и в middleware
+      document.cookie = `locale=${newLocale}; path=/; max-age=31536000; samesite=lax${process.env.NODE_ENV === 'production' ? '; secure' : ''}`
     } catch (error) {
       console.error('Error changing locale:', error)
     } finally {

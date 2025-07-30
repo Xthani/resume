@@ -14,16 +14,33 @@ export function middleware(request: NextRequest) {
 
   if (pathnameHasLocale) return
 
-  // Определяем локаль из заголовков или используем дефолтную
+  // Определяем локаль из заголовков, куки или используем дефолтную
   const locale = getLocale(request) ?? defaultLocale
 
   // Перенаправляем на URL с локалью
   const newPath = pathname === '/' ? `/${locale}` : `/${locale}${pathname}`
   const newUrl = new URL(newPath, request.url)
-  return NextResponse.redirect(newUrl)
+  
+  // Создаем ответ с перенаправлением и устанавливаем куки
+  const response = NextResponse.redirect(newUrl)
+  response.cookies.set('locale', locale, {
+    path: '/',
+    maxAge: 60 * 60 * 24 * 365, // 1 год
+    httpOnly: false, // Доступно для клиентского JavaScript
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'lax'
+  })
+  
+  return response
 }
 
 function getLocale(request: NextRequest): string | undefined {
+  // Сначала проверяем куки (приоритет пользовательского выбора)
+  const localeCookie = request.cookies.get('locale')?.value
+  if (localeCookie && locales.includes(localeCookie)) {
+    return localeCookie
+  }
+
   // Проверяем заголовок Accept-Language
   const acceptLanguage = request.headers.get('accept-language')
   if (acceptLanguage) {
@@ -33,12 +50,6 @@ function getLocale(request: NextRequest): string | undefined {
       .find(lang => locales.includes(lang))
     
     if (preferredLocale) return preferredLocale
-  }
-
-  // Проверяем куки
-  const localeCookie = request.cookies.get('locale')?.value
-  if (localeCookie && locales.includes(localeCookie)) {
-    return localeCookie
   }
 
   return undefined

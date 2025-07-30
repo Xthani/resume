@@ -3,65 +3,46 @@ export const experience = [
         type: 'job',
         title: 'Frontend Developer',
         org: 'Orderfy (freelance)',
-        period: 'May – June 2025',
         description: 'Development of interface for menu and QR-code orders. Used React 18, Vite, TypeScript, Radix UI, Zustand, i18n, Framer Motion.',
     },
     {
         type: 'job',
         title: 'Frontend Developer',
         org: 'NAMAT Global Trade (freelance)',
-        period: 'June 2024',
         description: 'Development of corporate website for international IT company. Responsive design, animations, REST API, interactive components. Next.js 14, TypeScript, Tailwind CSS, AOS.',
     },
     {
         type: 'job',
         title: 'Frontend Developer',
         org: 'Unifive (freelance)',
-        period: 'May 2024',
         description: 'Development of corporate landing page for IT company. Implemented animations, multilingual support, responsiveness. React 18, TypeScript, Ant Design, Framer Motion, i18next.',
     },
-    {
-        type: 'job',
-        title: 'Frontend Developer',
-        org: 'CASSA Office (permanent project work)',
-        period: 'May 2024 – April 2025',
-        description: 'Development of ERP system for restaurant business: 50+ modules, FSD architecture, analytics, maps, finance, delivery. Used React 18, TypeScript, Redux Toolkit, PrimeReact, Vite, Leaflet, Chart.js.',
-    },
+
     {
         type: 'job',
         title: 'Frontend Developer',
         org: 'KYT (AML platform) (temporary work)',
-        period: 'January – February 2024',
         description: 'Participation in development of AML platform for crypto transaction monitoring: alerts, transactions, clients, manual checks. React 17, TypeScript, Redux Toolkit, Redux Saga, Ant Design, i18next, Highcharts.',
     },
     {
         type: 'job',
         title: 'Frontend Developer',
         org: 'Smart People (freelance)',
-        period: 'April – May 2023',
         description: 'Development of HR platform with authorization, payment and personnel assessment calculator. React 18, TypeScript, Redux Toolkit, React Hook Form, SCSS, Axios, responsive design.',
     },
     {
         type: 'job',
         title: 'Frontend Developer',
         org: 'SiteRater (temporary work)',
-        period: 'April 2023',
         description: 'Development of website rating platform with reviews, analytics and responsive interface. React 18, Redux Toolkit, SCSS, Chart.js, D3.js, Feature-Sliced Design.',
     },
     {
         type: 'job',
         title: 'Frontend Developer',
         org: 'Tezber (marketplace) (junior assistance)',
-        period: 'October 2022',
         description: 'Development of multilingual e-commerce marketplace with messenger, catalog and responsive interface. Next.js 12, TypeScript, Redux Toolkit, Styled Components, Docker.',
     },
-    {
-        type: 'job',
-        title: 'Frontend Developer',
-        org: 'EVRAZ (Prom-Ecosystem) (independent work)',
-        period: 'December 2022 – January 2023',
-        description: 'Development of platform for managing mining and metallurgical processes. Modules: extraction, enrichment, planning, maps and analytics. React 17, TypeScript, Redux Toolkit, Leaflet, Recharts, SCSS, Azure DevOps.',
-    },
+
     {
         type: 'job',
         title: 'Frontend Instructor',
@@ -73,15 +54,7 @@ export const experience = [
         type: 'job',
         title: 'Frontend Developer',
         org: 'EVRAZ (ERP Frontend System) (junior assistance)',
-        period: 'September 2022',
         description: 'Development of task management, reporting and protocol system for metallurgical enterprise. React 17, TypeScript, Redux-Saga, SCSS, Keycloak, Excel reports, responsive design.',
-    },
-    {
-        type: 'job',
-        title: 'Frontend Developer',
-        org: 'GOST Group (Safe City Sakhalin) (independent work)',
-        period: 'May 2022 – April 2023',
-        description: 'Development of emergency monitoring system for Sakhalin: maps, response, resources, access matrix. Used React, TypeScript, Redux, OpenLayers, Styled Components, Ant Design, WebSocket.',
     },
 
     {
