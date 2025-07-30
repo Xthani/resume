@@ -2,8 +2,10 @@
 
 import {motion} from 'framer-motion'
 import { GlobeIcon } from '@radix-ui/react-icons'
+import { useLocale } from '@/contexts/LocaleContext'
 
 const About = () => {
+  const { t } = useLocale()
     return (
         <section id="about"
                  className="min-h-screen flex items-center justify-center px-4 py-16 bg-background scroll-mt-16">
@@ -22,20 +24,20 @@ const About = () => {
                         className="space-y-6 max-w-2xl"
                     >
                        <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-    Обо мне
+    {t('about.title')}
 </h2>
 <div className="space-y-4 text-lg text-foreground/80">
     <p className="text-lg text-foreground/70 text-balance">
-        Меня зовут Станислав. Я фронтенд-разработчик с более чем 5-летним коммерческим опытом, специализируюсь на создании веб-интерфейсов с использованием React, TypeScript и Redux.
+        {t('about.description')}
     </p>
     <p className="text-lg text-foreground/70 text-balance">
-        Участвовал в разработке крупных ERP, B2B и аналитических систем, включая проекты для ресторанного бизнеса, металлургии и госучреждений. Работал как в командах, так и самостоятельно.
+        {t('about.experience')}
     </p>
     <p className="text-lg text-foreground/70 text-balance">
-        Следую принципам чистого кода, уделяю внимание UX и производительности интерфейса. Использую FSD, адаптивную вёрстку, современные UI-библиотеки и библиотечную архитектуру.
+        {t('about.principles')}
     </p>
     <p className="text-lg text-foreground/70 text-balance">
-        Также имею опыт преподавания и менторства начинающих разработчиков.
+        {t('about.teaching')}
     </p>
 </div>
 
@@ -51,7 +53,7 @@ const About = () => {
                         <div className="flex items-center justify-center space-x-2 mb-4">
                             <GlobeIcon className="w-6 h-6 text-accent" />
                             <h3 className="text-xl md:text-2xl font-semibold text-foreground">
-                                Языки
+                                {t('about.languages.title')}
                             </h3>
                         </div>
                         
@@ -63,10 +65,10 @@ const About = () => {
                                 className="bg-muted/10 border border-muted/20 rounded-xl p-4 text-center hover:border-accent transition-colors duration-300"
                             >
                                 <div className="font-semibold text-lg text-foreground mb-1">
-                                    Русский
+                                    {t('about.languages.russian.name')}
                                 </div>
                                 <div className="text-sm text-foreground/70">
-                                    Родной язык
+                                    {t('about.languages.russian.level')}
                                 </div>
                             </motion.div>
                             
@@ -77,10 +79,10 @@ const About = () => {
                                 className="bg-muted/10 border border-muted/20 rounded-xl p-4 text-center hover:border-accent transition-colors duration-300"
                             >
                                 <div className="font-semibold text-lg text-foreground mb-1">
-                                    Английский
+                                    {t('about.languages.english.name')}
                                 </div>
                                 <div className="text-sm text-foreground/70">
-                                    B1 (Intermediate)
+                                    {t('about.languages.english.level')}
                                 </div>
                             </motion.div>
                         </div>

@@ -2,14 +2,20 @@
 
 import { motion } from 'framer-motion'
 import { useState, useEffect, useRef } from 'react'
-import { skills } from '@/data/skills'
+import { skills as skillsRu } from '@/data/skills.ru'
+import { skills as skillsEn } from '@/data/skills.en'
 import { ChevronLeftIcon, ChevronRightIcon } from '@radix-ui/react-icons'
+import { useLocale } from '@/contexts/LocaleContext'
 
 const Skills = () => {
+  const { t, locale } = useLocale()
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
   const [isMounted, setIsMounted] = useState(false)
   const autoPlayRef = useRef<NodeJS.Timeout | null>(null)
+
+  // Выбираем навыки в зависимости от языка
+  const skills = locale === 'en' ? skillsEn : skillsRu
 
   // Количество элементов на слайде в зависимости от размера экрана
   const getItemsPerSlide = () => {
@@ -91,7 +97,7 @@ const Skills = () => {
     return (
       <section id="skills" className="min-h-screen flex items-center justify-center px-4 py-16 bg-background scroll-mt-16">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-10 text-center">Навыки и технологии</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-10 text-center">{t('skills.title')}</h2>
           <div className="flex justify-center">
             <div className="animate-pulse bg-muted rounded-2xl p-6 w-full max-w-md">
               <div className="h-4 bg-muted/50 rounded mb-4"></div>
@@ -107,7 +113,7 @@ const Skills = () => {
   return (
     <section id="skills" className="min-h-screen flex items-center justify-center px-4 py-16 bg-background scroll-mt-16">
       <div className="container mx-auto max-w-6xl">
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-10 text-center">Навыки и технологии</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-10 text-center">{t('skills.title')}</h2>
         
         {/* Слайдер */}
         <div className="relative">
@@ -116,7 +122,7 @@ const Skills = () => {
             <button
               onClick={handlePrev}
               className="absolute left-0 top-6 bottom-6 z-10 bg-background/80 backdrop-blur-sm border border-muted/20 hover:bg-muted/10 transition-colors flex items-center justify-center w-12 rounded-2xl cursor-pointer"
-              aria-label="Предыдущие навыки"
+              aria-label={t('skills.prevButton')}
             >
               <ChevronLeftIcon className="w-6 h-6 text-foreground" />
             </button>
@@ -163,7 +169,7 @@ const Skills = () => {
             <button
               onClick={handleNext}
               className="absolute right-0 top-6 bottom-6 z-10 bg-background/80 backdrop-blur-sm border border-muted/20 hover:bg-muted/10 transition-colors flex items-center justify-center w-12 rounded-2xl cursor-pointer"
-              aria-label="Следующие навыки"
+              aria-label={t('skills.nextButton')}
             >
               <ChevronRightIcon className="w-6 h-6 text-foreground" />
             </button>
@@ -182,7 +188,7 @@ const Skills = () => {
                     ? 'bg-accent w-6'
                     : 'bg-muted hover:bg-foreground/30'
                 }`}
-                aria-label={`Перейти к слайду ${index + 1}`}
+                aria-label={`${t('skills.slideIndicator')} ${index + 1}`}
               />
             ))}
           </div>

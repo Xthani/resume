@@ -3,9 +3,12 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import ThemeToggle from './ThemeToggle'
+import LanguageToggle from './LanguageToggle'
+import { useLocale } from '@/contexts/LocaleContext'
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const { t } = useLocale()
 
   useEffect(() => {
     // Плавный скролл по якорям
@@ -25,10 +28,10 @@ const Navbar = () => {
   }, [])
 
   const navItems = [
-    { href: '#about', label: 'Обо мне' },
-    { href: '#skills', label: 'Навыки' },
-    { href: '#projects', label: 'Проекты' },
-    { href: '#contacts', label: 'Контакты' }
+    { href: '#about', label: t('nav.about') },
+    { href: '#skills', label: t('nav.skills') },
+    { href: '#projects', label: t('nav.projects') },
+    { href: '#contacts', label: t('nav.contacts') }
   ]
 
   return (
@@ -49,12 +52,14 @@ const Navbar = () => {
           </div>
 
           {/* Theme Toggle - Desktop */}
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center space-x-4">
+            <LanguageToggle />
             <ThemeToggle />
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center space-x-2">
+            <LanguageToggle />
             <ThemeToggle />
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

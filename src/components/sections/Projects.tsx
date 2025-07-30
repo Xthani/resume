@@ -1,7 +1,9 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { projects } from '@/data/projects'
+import { projects as projectsRu } from '@/data/projects.ru'
+import { projects as projectsEn } from '@/data/projects.en'
+import { useLocale } from '@/contexts/LocaleContext'
 
 const container = {
   hidden: {},
@@ -64,10 +66,15 @@ const ProjectIcon = ({ title }: { title: string }) => {
 }
 
 const Projects = () => {
+  const { t, locale } = useLocale()
+  
+  // Выбираем проекты в зависимости от языка
+  const projects = locale === 'en' ? projectsEn : projectsRu
+  
   return (
     <section id="projects" className="min-h-screen flex items-center justify-center px-4 py-16 bg-background scroll-mt-16">
       <div className="container mx-auto max-w-6xl">
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-10 text-center">Проекты, в которых я работал</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-10 text-center">{t('projects.title')}</h2>
         <motion.div
           variants={container}
           initial="hidden"

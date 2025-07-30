@@ -2,8 +2,10 @@
 
 import { motion } from 'framer-motion'
 import { useEffect } from 'react'
+import { useLocale } from '@/contexts/LocaleContext'
 
 const Hero = () => {
+  const { t } = useLocale()
   useEffect(() => {
     // Плавный скролл для кнопки CTA
     const handleContactClick = (e: Event) => {
@@ -41,7 +43,7 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-4xl md:text-6xl font-bold text-foreground leading-tight"
           >
-            Фронтенд-разработчик, создающий удобный и живой интерфейс
+            {t('hero.title')}
           </motion.h1>
 
           <motion.p
@@ -50,7 +52,7 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="text-xl md:text-2xl text-muted"
           >
-            React / TypeScript / Redux / Next.js
+            {t('hero.subtitle')}
           </motion.p>
 
           <motion.button
@@ -65,7 +67,7 @@ const Hero = () => {
                      focus:outline-none focus:ring-2 focus:ring-cta focus:ring-offset-2
                      focus:ring-offset-background"
           >
-            Связаться
+            {t('hero.cta')}
           </motion.button>
         </motion.div>
       </div>

@@ -1,10 +1,14 @@
 'use client'
 
+import { useLocale } from '@/contexts/LocaleContext'
+
 const Footer = () => {
+  const { t } = useLocale()
+  
   return (
     <footer id="footer" className="border-t border-muted py-6 text-center">
       <p className="text-sm text-muted">
-        Этот сайт разработан мной
+        {t('footer.developed')}
       </p>
       <a
         href="https://github.com/yourname/resume"
@@ -12,7 +16,7 @@ const Footer = () => {
         rel="noopener noreferrer"
         className="text-sm text-muted hover:text-accent transition duration-300"
       >
-        GitHub репозиторий
+        {t('footer.repository')}
       </a>
       <p className="text-sm text-muted mt-2">
         © {new Date().getFullYear()}
