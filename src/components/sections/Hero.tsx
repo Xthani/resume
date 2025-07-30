@@ -70,9 +70,9 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.6 }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-4 bg-cta text-white rounded-full text-lg font-medium
-                     hover:bg-cta/90 transition-colors duration-300 cursor-pointer
-                     focus:outline-none focus:ring-2 focus:ring-cta focus:ring-offset-2
+            className="px-8 py-4 bg-background/80 backdrop-blur-sm border border-muted/20 hover:bg-muted/10 transition-colors duration-300 cursor-pointer
+                     text-foreground text-lg font-medium rounded-full
+                     focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2
                      focus:ring-offset-background"
           >
             {t('hero.cta')}

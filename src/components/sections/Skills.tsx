@@ -29,10 +29,19 @@ const Skills = () => {
   const [itemsPerSlide, setItemsPerSlide] = useState(8) // Начальное значение для SSR
   const totalSlides = Math.ceil(skills.length / itemsPerSlide)
 
+  // Проверка на мобильное устройство
+  const isMobile = () => {
+    if (typeof window === 'undefined') return false
+    return window.innerWidth < 640
+  }
+
+  const [isMobileDevice, setIsMobileDevice] = useState(false)
+
   // Инициализация после монтирования компонента
   useEffect(() => {
     setIsMounted(true)
     setItemsPerSlide(getItemsPerSlide())
+    setIsMobileDevice(isMobile())
   }, [])
 
   // Обработчик изменения размера окна
@@ -41,6 +50,7 @@ const Skills = () => {
 
     const handleResize = () => {
       setItemsPerSlide(getItemsPerSlide())
+      setIsMobileDevice(isMobile())
     }
 
     window.addEventListener('resize', handleResize)
@@ -143,9 +153,9 @@ const Skills = () => {
                 return (
                   <motion.div
                     key={`${skill.name}-${currentSlide}-${index}`}
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={isMobileDevice ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
+                    transition={isMobileDevice ? { duration: 0 } : { delay: index * 0.1 }}
                     className="bg-muted/10 border border-muted/20 rounded-2xl p-6 md:p-6 flex flex-col items-center text-center shadow-sm transition duration-300 hover:shadow-lg hover:border-accent group h-[180px] sm:h-[160px]"
                     whileHover={{ scale: 1.04 }}
                   >
