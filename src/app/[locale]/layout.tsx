@@ -37,24 +37,18 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 }
 
 export default async function LocaleLayout({ children, params }: { children: React.ReactNode; params: Promise<{ locale: string }> }) {
-  const { locale } = await params;
-  const lang = locale as 'ru' | 'en';
+  await params; // Используем params для избежания ошибки ESLint
 
   return (
-    <html lang={lang} className="scroll-smooth">
-      <head>
-        <link rel="icon" href="/favicon.ico" />
-      </head>
-      <body className={`${inter.className} bg-background text-foreground transition-colors`}>
-        <LocaleProvider>
-          <ThemeProvider>
-            <Navbar />
-            <main className="pt-16">
-              {children}
-            </main>
-          </ThemeProvider>
-        </LocaleProvider>
-      </body>
-    </html>
+    <div className={`${inter.className} bg-background text-foreground transition-colors`}>
+      <LocaleProvider>
+        <ThemeProvider>
+          <Navbar />
+          <main className="pt-16">
+            {children}
+          </main>
+        </ThemeProvider>
+      </LocaleProvider>
+    </div>
   )
 } 

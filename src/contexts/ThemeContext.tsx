@@ -7,6 +7,7 @@ type Theme = 'light' | 'dark'
 interface ThemeContextType {
   theme: Theme
   toggleTheme: () => void
+  mounted: boolean
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
@@ -29,9 +30,10 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
 
   useEffect(() => {
     setMounted(true)
-    // Проверяем localStorage
+    
+    // Проверяем localStorage только на клиенте
     const savedTheme = localStorage.getItem('theme') as Theme
-    if (savedTheme) {
+    if (savedTheme && (savedTheme === 'light' || savedTheme === 'dark')) {
       setTheme(savedTheme)
     } else {
       // Проверяем системные настройки
@@ -42,12 +44,13 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
 
   useEffect(() => {
     if (!mounted) return
-    // Применяем тему к документу
-    const root = document.documentElement
+    
+    // Применяем тему к body элементу
+    const body = document.body
     if (theme === 'dark') {
-      root.classList.add('dark')
+      body.classList.add('dark')
     } else {
-      root.classList.remove('dark')
+      body.classList.remove('dark')
     }
     localStorage.setItem('theme', theme)
   }, [theme, mounted])
@@ -57,7 +60,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   }
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme, mounted }}>
       {children}
     </ThemeContext.Provider>
   )

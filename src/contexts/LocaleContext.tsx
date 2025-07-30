@@ -14,18 +14,22 @@ const translations: Record<Locale, Translations> = {
 
 export function LocaleProvider({ children }: { children: ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>('ru')
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    // Получаем локаль из URL при загрузке
+    setMounted(true)
+    
+    // Получаем локаль из URL при загрузке только на клиенте
     const pathname = window.location.pathname
     const localeFromPath = pathname.split('/')[1] as Locale
     if (localeFromPath && (localeFromPath === 'ru' || localeFromPath === 'en')) {
       setLocaleState(localeFromPath)
     }
-    // Убираем редирект, так как middleware уже обрабатывает это
   }, [])
 
   const setLocale = (newLocale: Locale) => {
+    if (!mounted) return
+    
     setLocaleState(newLocale)
     // Обновляем URL
     const currentPath = window.location.pathname
@@ -54,6 +58,7 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
     setLocale,
     t,
     translations: translations[locale],
+    mounted,
   }
 
   return (

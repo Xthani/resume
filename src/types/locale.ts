@@ -5,6 +5,7 @@ export interface LocaleContextType {
   setLocale: (locale: Locale) => void
   t: (key: string) => string
   translations: Translations
+  mounted: boolean
 }
 
 export interface Translations {

@@ -4,12 +4,26 @@ import { useLocale } from '@/contexts/LocaleContext'
 import { motion } from 'framer-motion'
 
 const LanguageToggle = () => {
-  const { locale, setLocale } = useLocale()
+  const { locale, setLocale, mounted } = useLocale()
 
   const handleLanguageChange = (newLocale: 'ru' | 'en') => {
+    if (!mounted) return
     if (newLocale !== locale) {
       setLocale(newLocale)
     }
+  }
+
+  if (!mounted) {
+    return (
+      <div className="flex items-center space-x-1 bg-muted/10 rounded-lg p-1">
+        <div className="px-3 py-1.5 text-sm font-medium rounded-md bg-muted/30 animate-pulse">
+          RU
+        </div>
+        <div className="px-3 py-1.5 text-sm font-medium rounded-md bg-muted/30 animate-pulse">
+          EN
+        </div>
+      </div>
+    )
   }
 
   return (

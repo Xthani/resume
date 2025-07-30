@@ -8,7 +8,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@radix-ui/react-icons'
 import { useLocale } from '@/contexts/LocaleContext'
 
 const Skills = () => {
-  const { t, locale } = useLocale()
+  const { t, locale, mounted: localeMounted } = useLocale()
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
   const [isMounted, setIsMounted] = useState(false)
@@ -37,7 +37,7 @@ const Skills = () => {
 
   // Обработчик изменения размера окна
   useEffect(() => {
-    if (!isMounted) return
+    if (!isMounted || !localeMounted) return
 
     const handleResize = () => {
       setItemsPerSlide(getItemsPerSlide())
@@ -45,11 +45,11 @@ const Skills = () => {
 
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
-  }, [isMounted])
+  }, [isMounted, localeMounted])
 
   // Автоскролл
   useEffect(() => {
-    if (!isAutoPlaying || totalSlides <= 1) {
+    if (!isAutoPlaying || totalSlides <= 1 || !isMounted || !localeMounted) {
       if (autoPlayRef.current) {
         clearInterval(autoPlayRef.current)
         autoPlayRef.current = null
@@ -67,7 +67,7 @@ const Skills = () => {
         autoPlayRef.current = null
       }
     }
-  }, [isAutoPlaying, totalSlides])
+  }, [isAutoPlaying, totalSlides, isMounted, localeMounted])
 
   const handlePrev = () => {
     setIsAutoPlaying(false)
@@ -93,7 +93,7 @@ const Skills = () => {
   const currentItems = getCurrentItems()
 
   // Не рендерим компонент до монтирования на клиенте
-  if (!isMounted) {
+  if (!isMounted || !localeMounted) {
     return (
       <section id="skills" className="min-h-screen flex items-center justify-center px-4 py-16 bg-background scroll-mt-16">
         <div className="container mx-auto max-w-6xl">

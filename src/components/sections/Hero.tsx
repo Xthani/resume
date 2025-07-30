@@ -1,12 +1,20 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useLocale } from '@/contexts/LocaleContext'
 
 const Hero = () => {
-  const { t } = useLocale()
+  const { t, mounted } = useLocale()
+  const [isMounted, setIsMounted] = useState(false)
+
   useEffect(() => {
+    setIsMounted(true)
+  }, [])
+
+  useEffect(() => {
+    if (!isMounted || !mounted) return
+    
     // Плавный скролл для кнопки CTA
     const handleContactClick = (e: Event) => {
       e.preventDefault()
@@ -26,7 +34,7 @@ const Hero = () => {
         contactButton.removeEventListener('click', handleContactClick)
       }
     }
-  }, [])
+  }, [isMounted, mounted])
 
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center px-4 py-16 bg-background scroll-mt-16">

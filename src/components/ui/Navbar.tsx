@@ -8,9 +8,16 @@ import { useLocale } from '@/contexts/LocaleContext'
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const { t } = useLocale()
+  const [mounted, setMounted] = useState(false)
+  const { t, mounted: localeMounted } = useLocale()
 
   useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  useEffect(() => {
+    if (!mounted) return
+    
     // Плавный скролл по якорям
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', (e: Event) => {
@@ -25,7 +32,26 @@ const Navbar = () => {
         }
       })
     })
-  }, [])
+  }, [mounted])
+
+  // Не рендерим навигацию пока не загрузится локаль
+  if (!mounted || !localeMounted) {
+    return (
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-muted/20">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center space-x-4">
+              <div className="w-20 h-4 bg-muted/30 rounded animate-pulse" />
+            </div>
+            <div className="flex items-center space-x-4">
+              <LanguageToggle />
+              <ThemeToggle />
+            </div>
+          </div>
+        </div>
+      </nav>
+    )
+  }
 
   const navItems = [
     { href: '#about', label: t('nav.about') },
@@ -87,29 +113,31 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu */}
-        <AnimatePresence>
-          {isMobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.2 }}
-              className="md:hidden border-t border-muted/20 bg-background/95 backdrop-blur-sm"
-            >
-              <div className="py-4 space-y-2">
-                {navItems.map((item) => (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    className="block px-4 py-2 text-foreground hover:text-accent hover:bg-muted/10 transition-colors"
-                  >
-                    {item.label}
-                  </a>
-                ))}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {mounted && (
+          <AnimatePresence>
+            {isMobileMenuOpen && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.2 }}
+                className="md:hidden border-t border-muted/20 bg-background/95 backdrop-blur-sm"
+              >
+                <div className="py-4 space-y-2">
+                  {navItems.map((item) => (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      className="block px-4 py-2 text-foreground hover:text-accent hover:bg-muted/10 transition-colors"
+                    >
+                      {item.label}
+                    </a>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        )}
       </div>
     </nav>
   )
