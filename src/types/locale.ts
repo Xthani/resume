@@ -2,10 +2,11 @@ export type Locale = 'ru' | 'en'
 
 export interface LocaleContextType {
   locale: Locale
-  setLocale: (locale: Locale) => void
+  setLocale: (locale: Locale) => Promise<void>
   t: (key: string) => string
   translations: Translations
   mounted: boolean
+  isChanging: boolean
 }
 
 export interface Translations {

@@ -4,12 +4,12 @@ import { useLocale } from '@/contexts/LocaleContext'
 import { motion } from 'framer-motion'
 
 const LanguageToggle = () => {
-  const { locale, setLocale, mounted } = useLocale()
+  const { locale, setLocale, mounted, isChanging } = useLocale()
 
-  const handleLanguageChange = (newLocale: 'ru' | 'en') => {
-    if (!mounted) return
+  const handleLanguageChange = async (newLocale: 'ru' | 'en') => {
+    if (!mounted || isChanging) return
     if (newLocale !== locale) {
-      setLocale(newLocale)
+      await setLocale(newLocale)
     }
   }
 
@@ -30,27 +30,51 @@ const LanguageToggle = () => {
     <div className="flex items-center space-x-1 bg-muted/10 rounded-lg p-1">
       <motion.button
         onClick={() => handleLanguageChange('ru')}
-        className={`px-3 py-1.5 text-sm font-medium rounded-md transition-colors cursor-pointer ${
+        disabled={isChanging}
+        className={`px-3 py-1.5 text-sm font-medium rounded-md transition-colors ${
+          isChanging 
+            ? 'opacity-50 cursor-not-allowed' 
+            : 'cursor-pointer'
+        } ${
           locale === 'ru'
             ? 'bg-accent text-white'
             : 'text-foreground/70 hover:text-foreground'
         }`}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
+        whileHover={!isChanging ? { scale: 1.05 } : {}}
+        whileTap={!isChanging ? { scale: 0.95 } : {}}
       >
-        RU
+        {isChanging && locale === 'ru' ? (
+          <div className="flex items-center space-x-1">
+            <div className="w-3 h-3 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+            <span>RU</span>
+          </div>
+        ) : (
+          'RU'
+        )}
       </motion.button>
       <motion.button
         onClick={() => handleLanguageChange('en')}
-        className={`px-3 py-1.5 text-sm font-medium rounded-md transition-colors cursor-pointer ${
+        disabled={isChanging}
+        className={`px-3 py-1.5 text-sm font-medium rounded-md transition-colors ${
+          isChanging 
+            ? 'opacity-50 cursor-not-allowed' 
+            : 'cursor-pointer'
+        } ${
           locale === 'en'
             ? 'bg-accent text-white'
             : 'text-foreground/70 hover:text-foreground'
         }`}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
+        whileHover={!isChanging ? { scale: 1.05 } : {}}
+        whileTap={!isChanging ? { scale: 0.95 } : {}}
       >
-        EN
+        {isChanging && locale === 'en' ? (
+          <div className="flex items-center space-x-1">
+            <div className="w-3 h-3 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+            <span>EN</span>
+          </div>
+        ) : (
+          'EN'
+        )}
       </motion.button>
     </div>
   )
