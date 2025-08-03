@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a365d;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2d3748;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.95" />
+      <stop offset="100%" style="stop-color:#f7fafc;stop-opacity:0.95" />
+    </linearGradient>
+    <linearGradient id="techGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3182ce;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#2b6cb0;stop-opacity:0.8" />
+    </linearGradient>
+    <linearGradient id="featureGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#38a169;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#2f855a;stop-opacity:0.8" />
+    </linearGradient>
+    <linearGradient id="mapGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#805ad5;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#6b46c1;stop-opacity:0.8" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="800" fill="url(#bgGradient)"/>
+  
+  <!-- Title -->
+  <text x="400" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white">
+    Sakhalin Safe City Frontend
+  </text>
+  <text x="400" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#a0aec0">
+    Система мониторинга и реагирования на ЧС
+  </text>
+  
+  <!-- Main Application Card -->
+  <rect x="50" y="100" width="700" height="600" rx="15" fill="url(#cardGradient)" stroke="#e2e8f0" stroke-width="2"/>
+  
+  <!-- Map Section -->
+  <rect x="70" y="130" width="320" height="200" rx="10" fill="url(#mapGradient)" stroke="#805ad5" stroke-width="2"/>
+  <text x="230" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">
+    Картографический интерфейс
+  </text>
+  
+  <!-- Map Elements -->
+  <rect x="85" y="170" width="280" height="140" rx="5" fill="#f7fafc" stroke="#cbd5e0" stroke-width="1"/>
+  
+  <!-- Map Grid -->
+  <line x1="85" y1="200" x2="365" y2="200" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="85" y1="230" x2="365" y2="230" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="85" y1="260" x2="365" y2="260" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="85" y1="290" x2="365" y2="290" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="85" y1="320" x2="365" y2="320" stroke="#e2e8f0" stroke-width="1"/>
+  
+  <line x1="115" y1="170" x2="115" y2="310" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="145" y1="170" x2="145" y2="310" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="175" y1="170" x2="175" y2="310" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="205" y1="170" x2="205" y2="310" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="235" y1="170" x2="235" y2="310" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="265" y1="170" x2="265" y2="310" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="295" y1="170" x2="295" y2="310" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="325" y1="170" x2="325" y2="310" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="355" y1="170" x2="355" y2="310" stroke="#e2e8f0" stroke-width="1"/>
+  
+  <!-- Map Icons -->
+  <circle cx="130" cy="215" r="8" fill="#e53e3e"/>
+  <circle cx="200" cy="245" r="8" fill="#e53e3e"/>
+  <circle cx="280" cy="275" r="8" fill="#3182ce"/>
+  <circle cx="150" cy="305" r="8" fill="#38a169"/>
+  
+  <!-- Incident Panel -->
+  <rect x="420" y="130" width="320" height="200" rx="10" fill="url(#featureGradient)" stroke="#38a169" stroke-width="2"/>
+  <text x="580" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">
+    Панель происшествий
+  </text>
+  
+  <!-- Incident List -->
+  <rect x="435" y="170" width="290" height="140" rx="5" fill="#f7fafc" stroke="#cbd5e0" stroke-width="1"/>
+  
+  <!-- Incident Items -->
+  <rect x="445" y="180" width="270" height="25" rx="3" fill="#fed7d7" stroke="#feb2b2" stroke-width="1"/>
+  <text x="455" y="195" font-family="Arial, sans-serif" font-size="12" fill="#c53030">🚨 Авария на дороге - ул. Ленина</text>
+  
+  <rect x="445" y="210" width="270" height="25" rx="3" fill="#bee3f8" stroke="#90cdf4" stroke-width="1"/>
+  <text x="455" y="225" font-family="Arial, sans-serif" font-size="12" fill="#2b6cb0">🚑 Медицинская помощь - ул. Сахалинская</text>
+  
+  <rect x="445" y="240" width="270" height="25" rx="3" fill="#c6f6d5" stroke="#9ae6b4" stroke-width="1"/>
+  <text x="455" y="255" font-family="Arial, sans-serif" font-size="12" fill="#2f855a">🚓 Пожарная служба - ул. Комсомольская</text>
+  
+  <rect x="445" y="270" width="270" height="25" rx="3" fill="#faf089" stroke="#f6e05e" stroke-width="1"/>
+  <text x="455" y="285" font-family="Arial, sans-serif" font-size="12" fill="#d69e2e">⚡ Электроавария - ул. Пограничная</text>
+  
+  <!-- Technology Stack -->
+  <rect x="70" y="350" width="320" height="200" rx="10" fill="url(#techGradient)" stroke="#3182ce" stroke-width="2"/>
+  <text x="230" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">
+    Технологический стек
+  </text>
+  
+  <!-- Tech Icons -->
+  <rect x="85" y="390" width="80" height="60" rx="5" fill="white" stroke="#cbd5e0" stroke-width="1"/>
+  <text x="125" y="415" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#3182ce">React</text>
+  <text x="125" y="430" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#4a5568">16.6.0</text>
+  
+  <rect x="175" y="390" width="80" height="60" rx="5" fill="white" stroke="#cbd5e0" stroke-width="1"/>
+  <text x="215" y="415" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#3182ce">TypeScript</text>
+  <text x="215" y="430" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#4a5568">3.1.1</text>
+  
+  <rect x="265" y="390" width="80" height="60" rx="5" fill="white" stroke="#cbd5e0" stroke-width="1"/>
+  <text x="305" y="415" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#3182ce">Redux</text>
+  <text x="305" y="430" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#4a5568">4.0.0</text>
+  
+  <rect x="85" y="470" width="80" height="60" rx="5" fill="white" stroke="#cbd5e0" stroke-width="1"/>
+  <text x="125" y="495" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#3182ce">OpenLayers</text>
+  <text x="125" y="510" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#4a5568">4.6.5</text>
+  
+  <rect x="175" y="470" width="80" height="60" rx="5" fill="white" stroke="#cbd5e0" stroke-width="1"/>
+  <text x="215" y="495" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#3182ce">Webpack</text>
+  <text x="215" y="510" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#4a5568">4.20.2</text>
+  
+  <rect x="265" y="470" width="80" height="60" rx="5" fill="white" stroke="#cbd5e0" stroke-width="1"/>
+  <text x="305" y="495" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#3182ce">Ant Design</text>
+  <text x="305" y="510" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#4a5568">3.14.1</text>
+  
+  <!-- System Features -->
+  <rect x="420" y="350" width="320" height="200" rx="10" fill="url(#featureGradient)" stroke="#38a169" stroke-width="2"/>
+  <text x="580" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">
+    Функциональность
+  </text>
+  
+  <!-- Feature List -->
+  <rect x="435" y="390" width="290" height="140" rx="5" fill="#f7fafc" stroke="#cbd5e0" stroke-width="1"/>
+  
+  <text x="445" y="410" font-family="Arial, sans-serif" font-size="12" fill="#2f855a">📍 Мониторинг происшествий в реальном времени</text>
+  <text x="445" y="430" font-family="Arial, sans-serif" font-size="12" fill="#2f855a">🗺️ Интерактивные карты с наложением данных</text>
+  <text x="445" y="450" font-family="Arial, sans-serif" font-size="12" fill="#2f855a">🚨 Панель оперативного реагирования</text>
+  <text x="445" y="470" font-family="Arial, sans-serif" font-size="12" fill="#2f855a">👥 Управление доступом пользователей</text>
+  <text x="445" y="490" font-family="Arial, sans-serif" font-size="12" fill="#2f855a">📊 Учет ресурсов и техники</text>
+  <text x="445" y="510" font-family="Arial, sans-serif" font-size="12" fill="#2f855a">🔗 Интеграция с внешними системами</text>
+  
+  <!-- Bottom Info -->
+  <rect x="70" y="570" width="670" height="100" rx="10" fill="#2d3748" stroke="#4a5568" stroke-width="2"/>
+  <text x="405" y="595" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+    GOST Group | Сахалинская область | Версия 2.41.0
+  </text>
+  <text x="405" y="615" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#a0aec0">
+    Автоматизированный программный комплекс "Безопасный город"
+  </text>
+  <text x="405" y="635" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#a0aec0">
+    Система мониторинга и реагирования на чрезвычайные ситуации
+  </text>
+  <text x="405" y="655" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#a0aec0">
+    Поддержка городов: Южно-Сахалинск, Корсаков, Невельск, РИП
+  </text>
+  
+  <!-- Decorative Elements -->
+  <circle cx="50" cy="50" r="3" fill="#3182ce" opacity="0.6"/>
+  <circle cx="750" cy="50" r="3" fill="#38a169" opacity="0.6"/>
+  <circle cx="50" cy="750" r="3" fill="#805ad5" opacity="0.6"/>
+  <circle cx="750" cy="750" r="3" fill="#e53e3e" opacity="0.6"/>
+  
+  <!-- Connection Lines -->
+  <line x1="390" y1="230" x2="420" y2="230" stroke="#3182ce" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="390" y1="430" x2="420" y2="430" stroke="#38a169" stroke-width="2" stroke-dasharray="5,5"/>
+</svg> 

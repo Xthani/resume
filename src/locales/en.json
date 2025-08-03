@@ -1,0 +1,71 @@
+{
+  "meta": {
+    "title": "Frontend Developer Resume — Stanislav",
+    "description": "Frontend developer resume landing page with project examples, skills and contacts.",
+    "keywords": "frontend, resume, react, typescript, developer, portfolio",
+    "author": "Stanislav",
+    "siteUrl": "https://your-site.com",
+    "siteName": "Frontend Resume",
+    "ogDescription": "Business card website with sales funnel for HR and clients",
+    "twitterDescription": "Landing page with skills, projects and contacts"
+  },
+  "nav": {
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contacts": "Contacts"
+  },
+  "hero": {
+    "title": "Frontend developer creating convenient and lively interfaces",
+    "subtitle": "React / TypeScript / Redux / Next.js",
+    "cta": "Contact"
+  },
+  "about": {
+    "title": "About me",
+    "description": "My name is Stanislav. I'm a frontend developer with over 5 years of commercial experience, specializing in creating web interfaces using React, TypeScript and Redux.",
+    "experience": "Participated in the development of large ERP, B2B and analytical systems, including projects for restaurant business, metallurgy and government institutions. Worked both in teams and independently.",
+    "principles": "I follow clean code principles, pay attention to UX and interface performance. I use FSD, responsive design, modern UI libraries and library architecture.",
+    "teaching": "I also have experience teaching and mentoring junior developers.",
+    "languages": {
+      "title": "Languages",
+      "russian": {
+        "name": "Russian",
+        "level": "Native language"
+      },
+      "english": {
+        "name": "English",
+        "level": "B1 (Intermediate)"
+      }
+    }
+  },
+  "skills": {
+    "title": "Skills and Technologies",
+    "prevButton": "Previous skills",
+    "nextButton": "Next skills",
+    "slideIndicator": "Go to slide"
+  },
+  "projects": {
+    "title": "Projects I worked on",
+    "detailsButton": "Details",
+    "viewImageButton": "View full image"
+  },
+  "experience": {
+    "title": "Experience and Education",
+    "jobs": {
+      "title": "Other projects"
+    },
+    "courses": {
+      "title": "Education"
+    }
+  },
+  "contacts": {
+    "title": "Contact me",
+    "email": "Email",
+    "telegram": "Telegram",
+    "github": "GitHub"
+  },
+  "footer": {
+    "developed": "This site was developed by me",
+    "repository": "GitHub repository"
+  }
+} 

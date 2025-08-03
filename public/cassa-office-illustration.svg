@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3a8a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f8fafc;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000000" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="800" fill="url(#bgGradient)"/>
+  
+  <!-- Central Logo Area -->
+  <circle cx="400" cy="400" r="120" fill="url(#cardGradient)" filter="url(#shadow)"/>
+  <text x="400" y="390" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#1e3a8a">CASSA</text>
+  <text x="400" y="415" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#3b82f6">OFFICE</text>
+  <text x="400" y="435" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#64748b">ERP System</text>
+  
+  <!-- Module Cards -->
+  <!-- Корпорация -->
+  <g transform="translate(150, 150)">
+    <rect width="120" height="80" rx="12" fill="url(#cardGradient)" filter="url(#shadow)"/>
+    <text x="60" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#1e3a8a">🏢</text>
+    <text x="60" y="45" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="#1e3a8a">Корпорация</text>
+    <text x="60" y="60" font-family="Arial, sans-serif" font-size="8" text-anchor="middle" fill="#64748b">Управление</text>
+  </g>
+  
+  <!-- Розничные продажи -->
+  <g transform="translate(530, 150)">
+    <rect width="120" height="80" rx="12" fill="url(#cardGradient)" filter="url(#shadow)"/>
+    <text x="60" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#1e3a8a">🛒</text>
+    <text x="60" y="45" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="#1e3a8a">Продажи</text>
+    <text x="60" y="60" font-family="Arial, sans-serif" font-size="8" text-anchor="middle" fill="#64748b">Касса</text>
+  </g>
+  
+  <!-- Товары и склады -->
+  <g transform="translate(150, 570)">
+    <rect width="120" height="80" rx="12" fill="url(#cardGradient)" filter="url(#shadow)"/>
+    <text x="60" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#1e3a8a">📦</text>
+    <text x="60" y="45" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="#1e3a8a">Товары</text>
+    <text x="60" y="60" font-family="Arial, sans-serif" font-size="8" text-anchor="middle" fill="#64748b">Склады</text>
+  </g>
+  
+  <!-- Производство -->
+  <g transform="translate(530, 570)">
+    <rect width="120" height="80" rx="12" fill="url(#cardGradient)" filter="url(#shadow)"/>
+    <text x="60" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#1e3a8a">🏭</text>
+    <text x="60" y="45" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="#1e3a8a">Производство</text>
+    <text x="60" y="60" font-family="Arial, sans-serif" font-size="8" text-anchor="middle" fill="#64748b">Логистика</text>
+  </g>
+  
+  <!-- Сотрудники -->
+  <g transform="translate(280, 100)">
+    <rect width="100" height="70" rx="10" fill="url(#cardGradient)" filter="url(#shadow)"/>
+    <text x="50" y="22" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="#1e3a8a">👥</text>
+    <text x="50" y="40" font-family="Arial, sans-serif" font-size="9" font-weight="bold" text-anchor="middle" fill="#1e3a8a">Сотрудники</text>
+    <text x="50" y="52" font-family="Arial, sans-serif" font-size="7" text-anchor="middle" fill="#64748b">Персонал</text>
+  </g>
+  
+  <!-- Финансы -->
+  <g transform="translate(420, 100)">
+    <rect width="100" height="70" rx="10" fill="url(#cardGradient)" filter="url(#shadow)"/>
+    <text x="50" y="22" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="#1e3a8a">💰</text>
+    <text x="50" y="40" font-family="Arial, sans-serif" font-size="9" font-weight="bold" text-anchor="middle" fill="#1e3a8a">Финансы</text>
+    <text x="50" y="52" font-family="Arial, sans-serif" font-size="7" text-anchor="middle" fill="#64748b">Отчеты</text>
+  </g>
+  
+  <!-- Доставка -->
+  <g transform="translate(280, 630)">
+    <rect width="100" height="70" rx="10" fill="url(#cardGradient)" filter="url(#shadow)"/>
+    <text x="50" y="22" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="#1e3a8a">🚚</text>
+    <text x="50" y="40" font-family="Arial, sans-serif" font-size="9" font-weight="bold" text-anchor="middle" fill="#1e3a8a">Доставка</text>
+    <text x="50" y="52" font-family="Arial, sans-serif" font-size="7" text-anchor="middle" fill="#64748b">Логистика</text>
+  </g>
+  
+  <!-- Отчеты -->
+  <g transform="translate(420, 630)">
+    <rect width="100" height="70" rx="10" fill="url(#cardGradient)" filter="url(#shadow)"/>
+    <text x="50" y="22" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="#1e3a8a">📊</text>
+    <text x="50" y="40" font-family="Arial, sans-serif" font-size="9" font-weight="bold" text-anchor="middle" fill="#1e3a8a">Отчеты</text>
+    <text x="50" y="52" font-family="Arial, sans-serif" font-size="7" text-anchor="middle" fill="#64748b">Аналитика</text>
+  </g>
+  
+  <!-- Technology Stack -->
+  <g transform="translate(50, 50)">
+    <rect width="200" height="60" rx="8" fill="rgba(255,255,255,0.9)" filter="url(#shadow)"/>
+    <text x="100" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#1e3a8a">Технологии</text>
+    <text x="100" y="40" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#64748b">React • TypeScript</text>
+    <text x="100" y="52" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#64748b">Redux • PrimeReact</text>
+  </g>
+  
+  <!-- Features -->
+  <g transform="translate(550, 50)">
+    <rect width="200" height="60" rx="8" fill="rgba(255,255,255,0.9)" filter="url(#shadow)"/>
+    <text x="100" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#1e3a8a">Возможности</text>
+    <text x="100" y="40" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#64748b">50+ модулей</text>
+    <text x="100" y="52" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#64748b">ERP система</text>
+  </g>
+  
+  <!-- Connection Lines -->
+  <g stroke="#3b82f6" stroke-width="2" fill="none" opacity="0.3">
+    <line x1="270" y1="190" x2="320" y2="320"/>
+    <line x1="530" y1="190" x2="480" y2="320"/>
+    <line x1="270" y1="610" x2="320" y2="480"/>
+    <line x1="530" y1="610" x2="480" y2="480"/>
+  </g>
+  
+  <!-- Decorative Elements -->
+  <circle cx="200" cy="200" r="3" fill="#3b82f6" opacity="0.6"/>
+  <circle cx="600" cy="200" r="3" fill="#3b82f6" opacity="0.6"/>
+  <circle cx="200" cy="600" r="3" fill="#3b82f6" opacity="0.6"/>
+  <circle cx="600" cy="600" r="3" fill="#3b82f6" opacity="0.6"/>
+</svg> 
